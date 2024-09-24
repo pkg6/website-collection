@@ -109,6 +109,7 @@
       eventCollection.addCustomData({ custom_user_id: 1 });
       eventCollection.addCustomData({ custom_token: "token_example" });
       let data = eventCollection.getData("load");
+      console.log(data);
       document.getElementById("output").innerHTML = JSON.stringify(
         data,
         null,

@@ -22,7 +22,7 @@ export interface IData {
   [propName: string]: unknown;
 }
 
-export interface IFetchConfig {
+export interface IConfig {
   url: string;
   headers?: HeadersInit;
 }
