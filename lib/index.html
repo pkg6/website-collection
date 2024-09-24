@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>website-collection</title><script src="./website-collection.js"></script><script defer="defer" src="website-collection.js"></script></head><style>body {
+      background: #f0f0f0;
+      font-family: "Bitstream Vera Sans", "Lucida Grande", "Lucida Sans Unicode",
+        Lucidux, Verdana, Lucida, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .text-center {
+      margin: 20px 0;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2.5em;
+    }
+
+    h2 {
+      color: #555;
+      font-size: 1.8em;
+    }
+
+    .body {
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    #output {
+      background-color: #282c34;
+      color: #61dafb;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      font-family: "Courier New", Courier, monospace;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    code {
+      background-color: #282c34;
+      color: #61dafb;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }</style><body class="body"><div class="text-center"><h2>Information obtained by the current browser</h2></div><div id="output"></div><div class="text-center"><h2>Instructions for Use</h2><h3>Loading js file</h3><div><code>&lt;script src=&quot;https://pkg6.github.io/website-collection/lib/website-collection.js&quot;&gt;&lt;/script&gt;</code></div><h3>Create an instance</h3><div><code>var eventCollection = new EventCollection({url:https://data.zhiqiang.wang/data-collect/receive});</code></div><h3>Send data</h3><div><code>eventCollection.send()</code></div></div><footer><p align="center">- <a href="https://github.com/pkg6/website-collection" target="_blank">Open source address</a> - <a href="https://www.zhiqiang.wang/" target="_blank">About Me</a></p></footer><script>//Initialization Example
+      var eventCollection = new EventCollection({
+        url: "https://data.zhiqiang.wang/data-collect/receive",
+      });
+      //Append customized data
+      eventCollection.addCustomData({ custom_user_id: 1 });
+      eventCollection.addCustomData({ custom_token: "token_example" });
+      let data = eventCollection.getData("load");
+      document.getElementById("output").innerHTML = JSON.stringify(
+        data,
+        null,
+        4,
+      );
+      //Send timing data to the interface
+      // eventCollection.setInterval(1000)</script></body></html>
