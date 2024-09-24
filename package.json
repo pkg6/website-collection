@@ -10,11 +10,12 @@
   },
   "scripts": {
     "build": "npm run prettier && npm run build:webpack  && npm run build:ts",
+    "build:version": "npm version patch && npm run build",
     "build:webpack": "webpack --mode production",
     "build:ts": "tsc && ts-add-js-extension --dir=lib",
     "prettier": "npx prettier . --write",
     "type:check": "npx tsc --noEmit --skipLibCheck",
-    "publish": "npm run build && npm publish",
+    "publish": "npm run build:version && npm publish",
     "serve": "webpack serve --mode development"
   },
   "repository": {

@@ -1,14 +1,14 @@
-import { FETCH_METHOD, IData, IFetchConfig } from "./type";
+import { FETCH_METHOD, IData, IConfig } from "./type";
 import { uuidRemember } from "./uuid";
 
 export class EventCollection {
-  protected fetchConfig: IFetchConfig;
+  protected config: IConfig;
   protected navigator: any;
   public data: IData;
   protected customData: Record<string, any> = {};
 
-  constructor(config: IFetchConfig) {
-    this.fetchConfig = config;
+  constructor(config: IConfig) {
+    this.config = config;
     this.navigator = window.navigator;
     let connection =
       this.navigator.connection ||
@@ -58,11 +58,11 @@ export class EventCollection {
     this.getData(event);
     let options = {
       method: FETCH_METHOD,
-      headers: this.fetchConfig.headers,
+      headers: this.config.headers,
       body: JSON.stringify(this.data),
     };
     try {
-      const response = await fetch(this.fetchConfig.url, options);
+      await fetch(this.config.url, options);
     } catch (err) {
       console.error(err);
     }
