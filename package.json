@@ -1,6 +1,6 @@
 {
   "name": "website-collection",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Site data collection and reporting",
   "author": "zhiqiang",
   "license": "Apache-2.0",
@@ -23,7 +23,6 @@
   "unpkg": "lib/website-collection.js",
   "scripts": {
     "build": "npm run prettier && npm run build:webpack  && npm run build:ts",
-    "build:version": "npm version patch && npm run build && echo \"git submit a new version OR npm publish\" && exit 1",
     "build:webpack": "webpack --mode production",
     "build:ts": "tsc && ts-add-js-extension --dir=lib",
     "prettier": "npx prettier . --write",
