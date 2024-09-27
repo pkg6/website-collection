@@ -39,6 +39,7 @@ export class EventCollection {
     this.data.document_url = window.document.documentURI;
     this.data.referrer_url = window.document.referrer;
     this.data.content_type = window.document.contentType;
+    this.data.document_title = window.document.title;
     let data = {
       ...this.data,
       ...this.customData,

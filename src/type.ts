@@ -22,6 +22,7 @@ export interface IData {
   document_url: string;
   referrer_url: string;
   content_type: string;
+  document_title: string;
 
   begin_time: number;
   [propName: string]: unknown;
