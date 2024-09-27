@@ -28,7 +28,6 @@ export class EventCollection {
       platform: this.navigator.platform,
       time_zone: dataTime.timeZone,
     } as IData;
-    console.log(config);
     this.data = data;
   }
   public getData(event: string): IData {
