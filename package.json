@@ -8,19 +8,27 @@
   "bugs": {
     "url": "https://github.com/pkg6/website-collection/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pkg6/website-collection.git"
+  },
+  "keywords": [
+    "device_id",
+    "collection",
+    "website",
+    "fetch",
+    "window"
+  ],
+  "jsdelivr":"lib/website-collection.js",
+  "unpkg": "lib/website-collection.js",
   "scripts": {
     "build": "npm run prettier && npm run build:webpack  && npm run build:ts",
-    "build:version": "npm version patch && npm run build",
+    "build:version": "npm version patch && npm run build && echo \"git submit a new version OR npm publish\" && exit 1",
     "build:webpack": "webpack --mode production",
     "build:ts": "tsc && ts-add-js-extension --dir=lib",
     "prettier": "npx prettier . --write",
     "type:check": "npx tsc --noEmit --skipLibCheck",
-    "publish": "npm run build:version && npm publish",
     "serve": "webpack serve --mode development"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pkg6/website-collection.git"
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.6.0",
