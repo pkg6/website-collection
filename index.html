@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>website-collection</title>
     <script src="./website-collection.js"></script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://github.com/fluidicon.png"
+    />
   </head>
   <style>
     body {
@@ -104,6 +109,7 @@
       //Initialization Example
       var eventCollection = new EventCollection({
         url: "https://data.zhiqiang.wang/data-collect/receive",
+        ignorePathName: ["/test"], //window.location.pathname
       });
       //Append customized data
       eventCollection.addCustomData({ custom_user_id: 1 });
@@ -115,6 +121,7 @@
         null,
         4,
       );
+      // eventCollection.send("load");
       //Send timing data to the interface
       // eventCollection.setInterval(1000)
     </script>

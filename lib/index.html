@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>website-collection</title><script src="./website-collection.js"></script><script defer="defer" src="website-collection.js"></script></head><style>body {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>website-collection</title><script src="./website-collection.js"></script><link rel="icon" type="image/x-icon" href="https://github.com/fluidicon.png"/><script defer="defer" src="website-collection.js"></script></head><style>body {
       background: #f0f0f0;
       font-family: "Bitstream Vera Sans", "Lucida Grande", "Lucida Sans Unicode",
         Lucidux, Verdana, Lucida, sans-serif;
@@ -55,6 +55,7 @@
     }</style><body class="body"><div class="text-center"><h2>Information obtained by the current browser</h2></div><div id="output"></div><div class="text-center"><h2>Instructions for Use</h2><h3>Loading js file</h3><div><code>&lt;script src=&quot;https://pkg6.github.io/website-collection/lib/website-collection.js&quot;&gt;&lt;/script&gt;</code></div><h3>Create an instance</h3><div><code>var eventCollection = new EventCollection({url:https://data.zhiqiang.wang/data-collect/receive});</code></div><h3>Send data</h3><div><code>eventCollection.send()</code></div></div><footer><p align="center">- <a href="https://github.com/pkg6/website-collection" target="_blank">Open source address</a> - <a href="https://www.zhiqiang.wang/" target="_blank">About Me</a></p></footer><script>//Initialization Example
       var eventCollection = new EventCollection({
         url: "https://data.zhiqiang.wang/data-collect/receive",
+        ignorePathName: ["/test"], //window.location.pathname
       });
       //Append customized data
       eventCollection.addCustomData({ custom_user_id: 1 });
@@ -66,5 +67,6 @@
         null,
         4,
       );
+      // eventCollection.send("load");
       //Send timing data to the interface
       // eventCollection.setInterval(1000)</script></body></html>
