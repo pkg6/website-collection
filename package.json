@@ -19,7 +19,7 @@
     "fetch",
     "window"
   ],
-  "jsdelivr":"lib/website-collection.js",
+  "jsdelivr": "lib/website-collection.js",
   "unpkg": "lib/website-collection.js",
   "scripts": {
     "build": "npm run prettier && npm run build:webpack  && npm run build:ts",
