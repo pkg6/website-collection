@@ -28,13 +28,18 @@ export class EventCollection {
       platform: this.navigator.platform,
       time_zone: dataTime.timeZone,
     } as IData;
+    console.log(config);
     this.data = data;
   }
   public getData(event: string): IData {
     this.data.event = event;
+    this.data.location = window.location;
     this.data.begin_time = Date.now();
-    this.data.current_url = window.location.href;
+    this.data.current_url = this.data.location.href;
+
+    this.data.document_url = window.document.documentURI;
     this.data.referrer_url = window.document.referrer;
+    this.data.content_type = window.document.contentType;
     let data = {
       ...this.data,
       ...this.customData,
@@ -53,9 +58,16 @@ export class EventCollection {
       this.send("timer");
     }, ms);
   }
-  //https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
+
   public async send(event: string = "load") {
     this.getData(event);
+    if (
+      this.config.ignorePathName != undefined &&
+      this.config.ignorePathName.includes(this.data.location.pathname)
+    ) {
+      return;
+    }
+
     let options = {
       method: FETCH_METHOD,
       headers: this.config.headers,
