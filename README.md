@@ -13,7 +13,7 @@ npm i website-collection
 ### typescript import
 
 ```
-import { EventCollection } from 'website-collection/lib/collection';
+import {EventCollection} from 'website-collection/collection';
 ```
 
 ### Create an instance
