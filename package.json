@@ -1,6 +1,6 @@
 {
   "name": "website-collection",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Site data collection and reporting",
   "author": "zhiqiang",
   "license": "Apache-2.0",
@@ -18,11 +18,6 @@
     "website",
     "fetch",
     "window"
-  ],
-  "files": [
-    "lib",
-    "LICENSE",
-    "README.md"
   ],
   "jsdelivr": "website-collection.js",
   "unpkg": "website-collection.js",
