@@ -16,8 +16,9 @@ export interface IData {
   platform: string;
   time_zone: string;
 
-  location: Location;
+  location?: Location;
   current_url: string;
+  pathname: string;
 
   document_url: string;
   referrer_url: string;
@@ -32,4 +33,10 @@ export interface IConfig {
   url: string;
   headers?: HeadersInit;
   ignorePathName?: string[];
+  code?: ICode;
+}
+
+export interface ICode {
+  encode(data: IData): string;
+  decode(encodedData: string): IData;
 }

@@ -31,6 +31,8 @@ eventCollection.send()
 ### setInterval send data
 
 ~~~
-eventCollection.setInterval(1000)
+setInterval(() => {
+    eventCollection.send("timer");
+}, 1000);
 ~~~
 

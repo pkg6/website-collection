@@ -49,6 +49,16 @@
       font-family: "Courier New", Courier, monospace;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
+    #output2 {
+      background-color: #282c34;
+      color: #61dafb;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      font-family: "Courier New", Courier, monospace;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
     code {
       background-color: #282c34;
       color: #61dafb;
@@ -70,10 +80,13 @@
   </style>
   <body class="body">
     <div class="text-center">
-      <h2>Information obtained by the current browser</h2>
+      <h2>Current browser data content</h2>
     </div>
     <div id="output"></div>
-
+    <div class="text-center">
+      <h2>Data sent through send</h2>
+    </div>
+    <div id="output2"></div>
     <div class="text-center">
       <h2>Instructions for Use</h2>
 
@@ -110,20 +123,19 @@
       var eventCollection = new EventCollection({
         url: "https://data.zhiqiang.wang/data-collect/receive",
         ignorePathName: ["/test"], //window.location.pathname
+        // code:window.base64code
       });
       //Append customized data
       eventCollection.addCustomData({ custom_user_id: 1 });
       eventCollection.addCustomData({ custom_token: "token_example" });
-      let data = eventCollection.getData("load");
-      console.log(data);
+      let { data, body } = eventCollection.getData("load");
       document.getElementById("output").innerHTML = JSON.stringify(
         data,
         null,
         4,
       );
-      // eventCollection.send("load");
-      //Send timing data to the interface
-      // eventCollection.setInterval(1000)
+      document.getElementById("output2").innerHTML = body;
+      eventCollection.send("load");
     </script>
   </body>
 </html>
