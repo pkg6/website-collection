@@ -1,9 +1,11 @@
 {
   "name": "website-collection",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Site data collection and reporting",
   "author": "zhiqiang",
   "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "homepage": "https://pkg6.github.io/website-collection/lib/",
   "bugs": {
     "url": "https://github.com/pkg6/website-collection/issues"
@@ -19,8 +21,20 @@
     "fetch",
     "window"
   ],
+  "files": [
+    "lib/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
   "jsdelivr": "website-collection.js",
   "unpkg": "website-collection.js",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "build": "npm run prettier && npm run build:webpack  && npm run build:ts",
     "build:webpack": "webpack --mode production",

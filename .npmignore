@@ -1,4 +1,8 @@
-/src/
-/tests/
-/.github/
+src/
+tests/
+.git/
+.github/
+*.config.js
+*.md
+tsconfig.json
 jest.config.js
