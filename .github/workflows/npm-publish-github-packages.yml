@@ -7,6 +7,10 @@ on:
   push:
     tags:
       - "v*"
+      
+permissions:
+  id-token: write 
+  contents: read
 
 jobs:
   build:
@@ -42,8 +46,6 @@ jobs:
 
       # Publish to npm
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # Commit version update to git
       - name: Push version update
